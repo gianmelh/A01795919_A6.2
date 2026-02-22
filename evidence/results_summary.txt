@@ -1,0 +1,19 @@
+Activity: A01795919_A6.2
+Course: TC4017.10
+
+Static Analysis Results
+-----------------------
+Flake8: No errors or warnings.
+Pylint: 10.00 / 10 score.
+
+Unit Tests
+----------
+Total tests executed: 18
+All tests passed successfully.
+
+Coverage
+--------
+Total coverage: 90%
+
+The project complies with PEP-8 coding standards.
+All negative test cases were implemented and validated.
