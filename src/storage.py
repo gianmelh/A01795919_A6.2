@@ -71,4 +71,6 @@ class JsonStorage:
     @staticmethod
     def validate_keys(obj: Any, required_keys: List[str]) -> bool:
         """Validate required keys in dictionary."""
-        return isinstance(obj, dict) and all(key in obj for key in required_keys)
+        return isinstance(obj, dict) and all(
+            key in obj for key in required_keys
+        )

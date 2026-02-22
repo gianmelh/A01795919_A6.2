@@ -15,7 +15,11 @@ class TestCustomer(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_create_and_get_customer(self):
-        customer = Customer.create(self.data_dir, "Ada Lovelace", "ada@demo.com")
+        customer = Customer.create(
+            self.data_dir,
+            "Ada Lovelace",
+            "ada@demo.com",
+        )
         fetched = Customer.get(self.data_dir, customer.id)
         self.assertEqual(fetched.email, "ada@demo.com")
 

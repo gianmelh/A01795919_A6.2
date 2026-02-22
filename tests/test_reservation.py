@@ -3,7 +3,11 @@ import unittest
 from pathlib import Path
 
 from src.customer import Customer
-from src.exceptions import EntityNotFoundError, ReservationError, ValidationError
+from src.exceptions import (
+    EntityNotFoundError,
+    ReservationError,
+    ValidationError,
+)
 from src.hotel import Hotel
 from src.reservation import Reservation
 
@@ -19,7 +23,11 @@ class TestReservation(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_create_and_cancel_reservation(self):
-        reservation = Reservation.create(self.data_dir, self.customer.id, self.hotel.id)
+        reservation = Reservation.create(
+            self.data_dir,
+            self.customer.id,
+            self.hotel.id,
+        )
         self.assertEqual(reservation.status, "ACTIVE")
 
         canceled = Reservation.cancel(self.data_dir, reservation.id)
@@ -36,11 +44,19 @@ class TestReservation(unittest.TestCase):
     # Negative case 2
     def test_create_reservation_customer_not_found_raises(self):
         with self.assertRaises(EntityNotFoundError):
-            Reservation.create(self.data_dir, "missing", self.hotel.id)
+            Reservation.create(
+                self.data_dir,
+                "missing",
+                self.hotel.id,
+            )
 
     # Negative case 3
     def test_cancel_twice_raises(self):
-        reservation = Reservation.create(self.data_dir, self.customer.id, self.hotel.id)
+        reservation = Reservation.create(
+            self.data_dir,
+            self.customer.id,
+            self.hotel.id,
+        )
         Reservation.cancel(self.data_dir, reservation.id)
 
         with self.assertRaises(ReservationError):
