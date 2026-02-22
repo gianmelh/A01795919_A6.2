@@ -27,28 +27,26 @@ The implementation follows **PEP-8 coding standards** and best practices in soft
 
 ## Project Structure
 
-
-
+```
 A01795919_A6.2/
 │
 ├── src/
-│ ├── customer.py
-│ ├── hotel.py
-│ ├── reservation.py
-│ ├── storage.py
-│ └── exceptions.py
+│   ├── customer.py
+│   ├── hotel.py
+│   ├── reservation.py
+│   ├── storage.py
+│   └── exceptions.py
 │
 ├── tests/
-│ ├── test_customer.py
-│ ├── test_hotel.py
-│ ├── test_reservation.py
-│ └── test_storage_invalid_json.py
+│   ├── test_customer.py
+│   ├── test_hotel.py
+│   ├── test_reservation.py
+│   └── test_storage_invalid_json.py
 │
 ├── data/
 ├── evidence/
 └── README.md
-
-
+```
 
 ## 🧪 Unit Testing
 
