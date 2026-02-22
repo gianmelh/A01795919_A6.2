@@ -1,0 +1,4 @@
+flake8 src tests
+pylint src
+coverage run -m unittest
+coverage report -m
