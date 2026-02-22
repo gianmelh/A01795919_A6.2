@@ -7,7 +7,11 @@ from pathlib import Path
 from uuid import uuid4
 
 from .customer import Customer
-from .exceptions import EntityNotFoundError, ReservationError, ValidationError
+from .exceptions import (
+    EntityNotFoundError,
+    ReservationError,
+    ValidationError,
+)
 from .hotel import Hotel
 from .storage import JsonStorage
 
@@ -29,13 +33,24 @@ class Reservation:
             raise ValidationError("hotel_id is required.")
 
     @classmethod
-    def create(cls, data_dir: Path, customer_id: str, hotel_id: str) -> "Reservation":
+    def create(
+        cls,
+        data_dir: Path,
+        customer_id: str,
+        hotel_id: str,
+    ) -> "Reservation":
         """Create a reservation and reserve a room."""
         cls._validate(customer_id, hotel_id)
 
         # Validate entities exist
-        _ = Customer.get(data_dir, customer_id)
-        _ = Hotel.get(data_dir, hotel_id)
+        _ = Customer.get(
+            data_dir,
+            customer_id,
+        )
+        _ = Hotel.get(
+            data_dir,
+            hotel_id,
+        )
 
         # Reserve a room (may fail)
         Hotel.reserve_room(data_dir, hotel_id)
